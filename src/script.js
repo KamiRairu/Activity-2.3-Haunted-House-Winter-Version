@@ -278,17 +278,17 @@ scene.add(floor);
  */
 // Ambient light
 const ambientLight = new THREE.AmbientLight('#a0a0ff', 0.5); // Cool blue ambient light
-gui.add(ambientLight, 'intensity').min(0).max(1).step(0.001);
+gui.add(ambientLight, 'intensity', 0, 1, 0.001).name('Ambient Light Intensity');
 scene.add(ambientLight);
 
 // Directional light (moonlight)
 const moonLight = new THREE.DirectionalLight('#ffffff', 0.5);
 moonLight.position.set(4, 5, -2);
 moonLight.castShadow = true; // Enable shadow casting for the directional light
-gui.add(moonLight, 'intensity').min(0).max(1).step(0.001);
-gui.add(moonLight.position, 'x').min(-5).max(5).step(0.001);
-gui.add(moonLight.position, 'y').min(-5).max(5).step(0.001);
-gui.add(moonLight.position, 'z').min(-5).max(5).step(0.001);
+gui.add(moonLight, 'intensity', 0, 1, 0.001).name('Moonlight Intensity');
+gui.add(moonLight.position, 'x', -5, 5, 0.001).name('Moonlight X Position');
+gui.add(moonLight.position, 'y', -5, 5, 0.001).name('Moonlight Y Position');
+gui.add(moonLight.position, 'z', -5, 5, 0.001).name('Moonlight Z Position');
 scene.add(moonLight);
 
 /**
@@ -320,7 +320,7 @@ window.addEventListener('resize', () => {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 
 // Position the camera in front of the door
-camera.position.set(0, 1.5, 8); // Adjusted position: x=0, y=1.5 (above ground), z=5 (in front of the door)
+camera.position.set(0, 1.5, 8); // Adjusted position: x=0, y=1.5 (above ground), z=8 (in front of the door)
 
 // Point the camera towards the door
 camera.lookAt(0, 1, 2); // Looking at the door position
